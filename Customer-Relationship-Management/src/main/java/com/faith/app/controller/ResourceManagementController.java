@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.faith.app.exception.ResourceNotFoundException;
-import com.faith.app.model.ResourceManagement;
+import com.faith.app.model.Resource;
 import com.faith.app.repository.ResourceRepository;
 
 @RestController
@@ -25,7 +25,7 @@ public class ResourceManagementController {
 	
 	// Get All Resources
 	@GetMapping("/resource")
-	public List<ResourceManagement> getAllResources()
+	public List<Resource> getAllResources()
 	{
 		return resourceRepository.findAll();
 	}
@@ -35,7 +35,7 @@ public class ResourceManagementController {
 	
 	//Add the Resource
 	@PostMapping("/resource")
-	public ResourceManagement addResource(@RequestBody ResourceManagement resource)
+	public Resource addResource(@RequestBody Resource resource)
 	{
 		return resourceRepository.save(resource);
 	}
@@ -44,9 +44,9 @@ public class ResourceManagementController {
 	
 	// Get the Resource by ID
 	@GetMapping("/resource/{resourceId}")
-	public ResponseEntity<ResourceManagement> getResourceById(@PathVariable Long resourceId)
+	public ResponseEntity<Resource> getResourceById(@PathVariable Long resourceId)
 	{
-		ResourceManagement resource=resourceRepository.findById(resourceId).orElseThrow(()-> new ResourceNotFoundException(""));
+		Resource resource=resourceRepository.findById(resourceId).orElseThrow(()-> new ResourceNotFoundException(""));
 		
 		return ResponseEntity.ok(resource);
 	}
@@ -55,9 +55,9 @@ public class ResourceManagementController {
 	
 	//Update the Resource by ID
 	@PutMapping("/resource/{resourceId}")
-	public ResponseEntity<ResourceManagement> updateResource(@PathVariable Long resourceId,@RequestBody ResourceManagement resourceDetails){
+	public ResponseEntity<Resource> updateResource(@PathVariable Long resourceId,@RequestBody Resource resourceDetails){
 		
-		ResourceManagement resource=resourceRepository.findById(resourceId).orElseThrow(()-> new ResourceNotFoundException(""));
+		Resource resource=resourceRepository.findById(resourceId).orElseThrow(()-> new ResourceNotFoundException(""));
 		
 		resource.setResourceName(resourceDetails.getResourceName());
 		resource.setResourceType(resourceDetails.getResourceType());
@@ -65,7 +65,7 @@ public class ResourceManagementController {
 		resource.setAvaliableCapacity(resourceDetails.getAvaliableCapacity());
 		resource.setActive(resourceDetails.isActive());
 		
-		ResourceManagement updateResource=resourceRepository.save(resource);
+		Resource updateResource=resourceRepository.save(resource);
 		
 		return ResponseEntity.ok(updateResource);
 		

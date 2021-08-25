@@ -1,5 +1,7 @@
 package com.faith.app.model;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,37 +14,32 @@ public class WebsiteVisitData {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private String dataTime;
+	private LocalDateTime timestamp;
 	private int visitCount;
-	
-	
-	
-	
 	
 	public WebsiteVisitData() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	
-	
-	
-	public WebsiteVisitData(String dataTime, int visitCount) {
+	public WebsiteVisitData(LocalDateTime timestamp, int visitCount) {
 		super();
-		this.dataTime = dataTime;
+		this.timestamp = timestamp;
 		this.visitCount = visitCount;
 	}
 
-
-
-	public String getDataTime() {
-		return dataTime;
+	public LocalDateTime getDataTime() {
+		return timestamp;
 	}
-	public void setDataTime(String dataTime) {
-		this.dataTime = dataTime;
+	
+	public void setDataTime(LocalDateTime timestamp) {
+		this.timestamp = timestamp;
 	}
+	
 	public int getVisitCount() {
 		return visitCount;
 	}
+	
 	public void setVisitCount(int visitCount) {
 		this.visitCount = visitCount;
 	}

@@ -27,10 +27,9 @@ public class Batches {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Batches(Long batchId, Long resourceId, Long courseId, String batchName, String batchInfo, int batchCapacity,
+	public Batches(Long resourceId, Long courseId, String batchName, String batchInfo, int batchCapacity,
 			String startDate, String endDate, Boolean isActive) {
 		super();
-		this.batchId = batchId;
 		this.resourceId = resourceId;
 		this.courseId = courseId;
 		this.batchName = batchName;

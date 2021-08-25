@@ -1,18 +1,13 @@
 package com.faith.app.service;
 
-import java.util.ArrayList;
-import java.util.List;
+
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.faith.app.repository.CourseRepository;
-import com.faith.app.model.CourseModel;
 import com.faith.app.model.Course;
-
-
-
 
 @Service
 public class CourseService {
@@ -66,41 +61,41 @@ public class CourseService {
         
         
     	
-    	/** Get course by Id **/
-        public CourseModel getCourse(Long course_id) {
-            if(courseRepository.findById(course_id).isPresent()) {
-                Course course = courseRepository.findById(course_id).get();
-                CourseModel courseModel = new CourseModel();
-                courseModel.setCourse_name(course.getCourse_name());
-                courseModel.setCourse_description(course.getCourse_description());
-                courseModel.setCourse_duration(course.getCourse_duration());
-                courseModel.setCourse_price(course.getCourse_price());
-                return courseModel;
-            } else return null;
-        }
-    	
-    	
-    	//get all course
-    	public List<CourseModel > getCourses(){
-    	
-    		List<Course> courseList=courseRepository.findAll();
-    		 if(courseList.size()>0) {
-    			 
-    			 List<CourseModel> courseModels = new ArrayList<>();
-    			 
-    			 for (Course course : courseList) {
-    				 CourseModel model = new CourseModel();
-    				 model.setCourse_name(course.getCourse_name());
-    				 model.setCourse_description(course.getCourse_description());
-    				 model.setCourse_duration(course.getCourse_duration());
-    				 model.setCourse_price(course.getCourse_price());
-    	             courseModels.add(model);
-    			 }
-    			 return courseModels;
-    		 }
-    		 else return new ArrayList<CourseModel>();
-    		
-    	}
+//    	/** Get course by Id **/
+//        public CourseModel getCourse(Long course_id) {
+//            if(courseRepository.findById(course_id).isPresent()) {
+//                Course course = courseRepository.findById(course_id).get();
+//                CourseModel courseModel = new CourseModel();
+//                courseModel.setCourse_name(course.getCourse_name());
+//                courseModel.setCourse_description(course.getCourse_description());
+//                courseModel.setCourse_duration(course.getCourse_duration());
+//                courseModel.setCourse_price(course.getCourse_price());
+//                return courseModel;
+//            } else return null;
+//        }
+//    	
+//    	
+//    	//get all course
+//    	public List<CourseModel > getCourses(){
+//    	
+//    		List<Course> courseList=courseRepository.findAll();
+//    		 if(courseList.size()>0) {
+//    			 
+//    			 List<CourseModel> courseModels = new ArrayList<>();
+//    			 
+//    			 for (Course course : courseList) {
+//    				 CourseModel model = new CourseModel();
+//    				 model.setCourse_name(course.getCourse_name());
+//    				 model.setCourse_description(course.getCourse_description());
+//    				 model.setCourse_duration(course.getCourse_duration());
+//    				 model.setCourse_price(course.getCourse_price());
+//    	             courseModels.add(model);
+//    			 }
+//    			 return courseModels;
+//    		 }
+//    		 else return new ArrayList<CourseModel>();
+//    		
+//    	}
 
     	
     	
