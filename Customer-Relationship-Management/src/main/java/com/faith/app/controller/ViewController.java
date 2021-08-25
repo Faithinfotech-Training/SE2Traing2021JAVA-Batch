@@ -10,19 +10,23 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/test/")
 public class ViewController {
-	@GetMapping("/api/manager/site-visit-view")
+	
+	//Manager site visit tabular and chart view
+	@GetMapping("manager/site-visit-view")
 	@PreAuthorize("hasRole('MANAGER')")
 	public String managerSiteVisitView() {
-		return "Site Visit Data";
+		return "Site Visit Data.";
 	}
 	
+	//Manager Summary View of Course Enquiry and Drill down view from summary
 	@GetMapping("manager/course-enquiries-view")
 	@PreAuthorize("hasRole('MANAGER')")
 	public String managerCourseEnquiriesView() {
 		return "Course Enquiries";
 	}
 	
-	@GetMapping("manager/course-enquiries-view")
+	//Manager Summary View of Resource and Drill down view from summary
+	@GetMapping("manager/resource-enquiries-view")
 	@PreAuthorize("hasRole('MANAGER')")
 	public String managerResourceEnquiriesView() {
 		return "Resource Enquiries";

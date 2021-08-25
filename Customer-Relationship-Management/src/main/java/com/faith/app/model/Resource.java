@@ -8,8 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="resource_management")
-public class ResourceManagement {
+@Table(name="resource")
+public class Resource {
 	
 	
 	@Id
@@ -35,13 +35,13 @@ public class ResourceManagement {
 	
 	
 	
-	public ResourceManagement() {
+	public Resource() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	
 	
-	public ResourceManagement(long resourceId, String resourceName, String resourceType, int maxCapacity,
+	public Resource(long resourceId, String resourceName, String resourceType, int maxCapacity,
 			int avaliableCapacity, boolean isActive) {
 		super();
 		this.resourceId = resourceId;

@@ -8,94 +8,89 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="resource_enquiry")
-public class ResourceEnquiryManagement {
-	
+@Table(name="course_enquiry")
+
+public class CourseEnquiry {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long resourceEnquiryId;
+	private Long courseEnquiryId;
 	
-	@Column(name="Guest_Id")
+	@Column(name="Guest_ID")
 	private Long guestId;
 	
-	@Column(name="Resource_ID")
-	private Long resourceId;
+	@Column(name="Course_ID")
+	private Long courseId;
 	
 	@Column(name="Date")
 	private String date;
 	
 	@Column(name="Enquiry_Status")
 	private String enquiryStatus;
-	
-	
-	
-	
 
-	public ResourceEnquiryManagement() {
+	
+	public CourseEnquiry() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
-
 	
 	
-	public ResourceEnquiryManagement(Long resourceEnquiryId, Long guestId, Long resourceId, String date,
-			String enquiryStatus) {
+	public CourseEnquiry(Long courseEnquiryId, Long guestId, Long courseId, String date, String enquiryStatus) {
 		super();
-		this.resourceEnquiryId = resourceEnquiryId;
+		this.courseEnquiryId = courseEnquiryId;
 		this.guestId = guestId;
-		this.resourceId = resourceId;
+		this.courseId = courseId;
 		this.date = date;
 		this.enquiryStatus = enquiryStatus;
 	}
 
 
-
-	public Long getResourceEnquiryId() {
-		return resourceEnquiryId;
+	public Long getCourseEnquiryId() {
+		return courseEnquiryId;
 	}
 
-	public void setResourceEnquiryId(Long resourceEnquiryId) {
-		this.resourceEnquiryId = resourceEnquiryId;
+
+	public void setCourseEnquiryId(Long courseEnquiryId) {
+		this.courseEnquiryId = courseEnquiryId;
 	}
+
 
 	public Long getGuestId() {
 		return guestId;
 	}
 
+
 	public void setGuestId(Long guestId) {
 		this.guestId = guestId;
 	}
 
-	public Long getResourceId() {
-		return resourceId;
+
+	public Long getCourseId() {
+		return courseId;
 	}
 
-	public void setResourceId(Long resourceId) {
-		this.resourceId = resourceId;
+
+	public void setCourseId(Long courseId) {
+		this.courseId = courseId;
 	}
+
 
 	public String getDate() {
 		return date;
 	}
 
+
 	public void setDate(String date) {
 		this.date = date;
 	}
+
 
 	public String getEnquiryStatus() {
 		return enquiryStatus;
 	}
 
+
 	public void setEnquiryStatus(String enquiryStatus) {
 		this.enquiryStatus = enquiryStatus;
 	}
 	
-	
-	
-	
-	
-	
-	
-
 }

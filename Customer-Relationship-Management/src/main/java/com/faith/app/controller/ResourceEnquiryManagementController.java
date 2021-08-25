@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.faith.app.exception.ResourceNotFoundException;
-import com.faith.app.model.ResourceEnquiryManagement;
+import com.faith.app.model.ResourceEnquiry;
 import com.faith.app.repository.ResourceEnquiryRepository;
 
 @RestController
@@ -26,7 +26,7 @@ public class ResourceEnquiryManagementController {
 	
 	//Get all the Resource Enquiries
 	@GetMapping("/resource/enquiries")
-	public List<ResourceEnquiryManagement> getAllEnquiries(){
+	public List<ResourceEnquiry> getAllEnquiries(){
 		
 		return resourceEnquiryRepository.findAll();
 		
@@ -34,24 +34,24 @@ public class ResourceEnquiryManagementController {
 	
 	//Get the Resource Enquire by ID
 	@GetMapping("/resource/enquiry/{enquiryId}")
-	public ResponseEntity<ResourceEnquiryManagement> getEnquiryById(@PathVariable Long enquiryId){
-		ResourceEnquiryManagement enquiry=resourceEnquiryRepository.findById(enquiryId).orElseThrow(()->new ResourceNotFoundException("Entered ID is not present"));
+	public ResponseEntity<ResourceEnquiry> getEnquiryById(@PathVariable Long enquiryId){
+		ResourceEnquiry enquiry=resourceEnquiryRepository.findById(enquiryId).orElseThrow(()->new ResourceNotFoundException("Entered ID is not present"));
 		return ResponseEntity.ok(enquiry);
 	}
 	
 	
 	//Create Resource Enquire
 	@PostMapping("/resource/enquiry")
-	public ResourceEnquiryManagement addEnquiry(@RequestBody ResourceEnquiryManagement enquiry) {
+	public ResourceEnquiry addEnquiry(@RequestBody ResourceEnquiry enquiry) {
 		return resourceEnquiryRepository.save(enquiry);
 	}
 	
 	
 	//Update the Resource Enquire by ID
 	@PutMapping("/resource/enquiry/{enquiryId}")
-	public ResponseEntity<ResourceEnquiryManagement> updateEnquiry(@PathVariable Long enquiryId,@RequestBody ResourceEnquiryManagement enquiryDetails){
+	public ResponseEntity<ResourceEnquiry> updateEnquiry(@PathVariable Long enquiryId,@RequestBody ResourceEnquiry enquiryDetails){
 		
-		  ResourceEnquiryManagement enquiry=resourceEnquiryRepository.findById(enquiryId).orElseThrow(()->new ResourceNotFoundException("Entered ID is not present"));
+		  ResourceEnquiry enquiry=resourceEnquiryRepository.findById(enquiryId).orElseThrow(()->new ResourceNotFoundException("Entered ID is not present"));
 		  
 		  enquiry.setResourceId(enquiryDetails.getResourceId());
 		  enquiry.setDate(enquiryDetails.getDate());
@@ -59,7 +59,7 @@ public class ResourceEnquiryManagementController {
 		 
 		  
 		  
-		  ResourceEnquiryManagement enquiryUpdate=resourceEnquiryRepository.save(enquiry);
+		  ResourceEnquiry enquiryUpdate=resourceEnquiryRepository.save(enquiry);
 		  return ResponseEntity.ok(enquiryUpdate);
 		  
 	
@@ -69,13 +69,13 @@ public class ResourceEnquiryManagementController {
 	
 	//Update the Enquiry status for particular ID
 	@PutMapping("/resource/enquiry/{enquiryId}/status")
-	public ResponseEntity<ResourceEnquiryManagement> updateEnquiryStatus(@PathVariable Long enquiryId,@RequestBody ResourceEnquiryManagement enquiryDetails){
+	public ResponseEntity<ResourceEnquiry> updateEnquiryStatus(@PathVariable Long enquiryId,@RequestBody ResourceEnquiry enquiryDetails){
 		  
-		  ResourceEnquiryManagement enquiry=resourceEnquiryRepository.findById(enquiryId).orElseThrow(()->new ResourceNotFoundException("Entered ID is not present"));
+		  ResourceEnquiry enquiry=resourceEnquiryRepository.findById(enquiryId).orElseThrow(()->new ResourceNotFoundException("Entered ID is not present"));
 		  
 		  enquiry.setEnquiryStatus(enquiryDetails.getEnquiryStatus());
 		  
-		  ResourceEnquiryManagement enquiryUpdate=resourceEnquiryRepository.save(enquiry);
+		  ResourceEnquiry enquiryUpdate=resourceEnquiryRepository.save(enquiry);
 		  return ResponseEntity.ok(enquiryUpdate);
 	   
 	}

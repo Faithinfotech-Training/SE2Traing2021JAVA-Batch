@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.faith.app.repository.CourseEnquiryRepository;
-import com.faith.app.model.CourseEnquiryModel;
+import com.faith.app.model.CourseEnquiry;
 import com.faith.app.exception.CourseNotFoundException;;
 
 @RestController
@@ -24,7 +24,7 @@ public class CourseEnquiryController {
 	
 	//Get all the Course Enquires
 	@GetMapping("/api/course/enquiries")
-	public List<CourseEnquiryModel> getAllEnquiries(){
+	public List<CourseEnquiry> getAllEnquiries(){
 		
 		return courseEnquiryRepository.findAll();
 		
@@ -32,24 +32,24 @@ public class CourseEnquiryController {
 	
 	//Get the Course Enquire by ID
 	@GetMapping("/api/course/enquiry/{enquiryId}")
-	public ResponseEntity<CourseEnquiryModel> getEnquiryById(@PathVariable Long enquiryId){
-		CourseEnquiryModel enquiry=courseEnquiryRepository.findById(enquiryId).orElseThrow(()->new CourseNotFoundException("Entered ID is not present"));
+	public ResponseEntity<CourseEnquiry> getEnquiryById(@PathVariable Long enquiryId){
+		CourseEnquiry enquiry=courseEnquiryRepository.findById(enquiryId).orElseThrow(()->new CourseNotFoundException("Entered ID is not present"));
 		return ResponseEntity.ok(enquiry);
 	}
 	
 	
 	//Create Course Enquiry
 	@PostMapping("/api/course/enquiry")
-	public CourseEnquiryModel addEnquiry(@RequestBody CourseEnquiryModel enquiry) {
+	public CourseEnquiry addEnquiry(@RequestBody CourseEnquiry enquiry) {
 		return courseEnquiryRepository.save(enquiry);
 	}
 	
 	
 	//Update the Course Enquire by ID
 	@PutMapping("/api/course/enquiry/{enquiryId}")
-	public ResponseEntity<CourseEnquiryModel> updateEnquiry(@PathVariable Long enquiryId,@RequestBody CourseEnquiryModel enquiryDetails){
+	public ResponseEntity<CourseEnquiry> updateEnquiry(@PathVariable Long enquiryId,@RequestBody CourseEnquiry enquiryDetails){
 		
-		CourseEnquiryModel enquiry=courseEnquiryRepository.findById(enquiryId).orElseThrow(()->new CourseNotFoundException("Entered ID is not present"));
+		CourseEnquiry enquiry=courseEnquiryRepository.findById(enquiryId).orElseThrow(()->new CourseNotFoundException("Entered ID is not present"));
 		  
 		  enquiry.setCourseId(enquiryDetails.getCourseId());
 		  enquiry.setDate(enquiryDetails.getDate());
@@ -57,7 +57,7 @@ public class CourseEnquiryController {
 		 
 		  
 		  
-		  CourseEnquiryModel enquiryUpdate=courseEnquiryRepository.save(enquiry);
+		  CourseEnquiry enquiryUpdate=courseEnquiryRepository.save(enquiry);
 		  return ResponseEntity.ok(enquiryUpdate);
 		  
 	
@@ -67,13 +67,13 @@ public class CourseEnquiryController {
 	
 	//Update the Enquiry status for particular ID
 	@PutMapping("/resource/enquiry/{enquiryId}/status")
-	public ResponseEntity<CourseEnquiryModel> updateEnquiryStatus(@PathVariable Long enquiryId,@RequestBody CourseEnquiryModel enquiryDetails){
+	public ResponseEntity<CourseEnquiry> updateEnquiryStatus(@PathVariable Long enquiryId,@RequestBody CourseEnquiry enquiryDetails){
 		  
-		CourseEnquiryModel enquiry=courseEnquiryRepository.findById(enquiryId).orElseThrow(()->new CourseNotFoundException("Entered ID is not present"));
+		CourseEnquiry enquiry=courseEnquiryRepository.findById(enquiryId).orElseThrow(()->new CourseNotFoundException("Entered ID is not present"));
 		  
 		  enquiry.setEnquiryStatus(enquiryDetails.getEnquiryStatus());
 		  
-		  CourseEnquiryModel enquiryUpdate=courseEnquiryRepository.save(enquiry);
+		  CourseEnquiry enquiryUpdate=courseEnquiryRepository.save(enquiry);
 		  return ResponseEntity.ok(enquiryUpdate);
 	   
 	}

@@ -51,6 +51,7 @@ public class AuthController {
 	@Autowired
 	JwtUtils jwtUtils;
 
+	//signin for manager and admin using JWT authentication
 	@PostMapping("/signin")
 	public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
 
@@ -72,6 +73,7 @@ public class AuthController {
 												 roles));
 	}
 
+	//Signup for new user
 	@PostMapping("/signup")
 	public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest signUpRequest) {
 		if (userRepository.existsByUsername(signUpRequest.getUsername())) {
