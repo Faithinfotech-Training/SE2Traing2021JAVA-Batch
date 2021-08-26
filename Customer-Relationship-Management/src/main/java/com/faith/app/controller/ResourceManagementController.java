@@ -23,14 +23,16 @@ public class ResourceManagementController {
 	@Autowired
 	private ResourceRepository resourceRepository;
 	
+	AuthController obj = new AuthController();
+	
 	// Get All Resources
 	@GetMapping("/resource")
 	public List<Resource> getAllResources()
+	//public List<Resource> getAllResources(@RequestHeader("Authorization") + new String("Bearer "+ AuthController.jwt))
+
 	{
 		return resourceRepository.findAll();
 	}
-	
-	
 	
 	
 	//Add the Resource

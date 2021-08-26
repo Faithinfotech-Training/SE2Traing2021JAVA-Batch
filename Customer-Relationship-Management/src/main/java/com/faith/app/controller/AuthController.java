@@ -36,6 +36,9 @@ import com.faith.app.security.services.UserDetailsImpl;
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
+	
+	public static String token; 
+			
 	@Autowired
 	AuthenticationManager authenticationManager;
 
@@ -60,6 +63,10 @@ public class AuthController {
 
 		SecurityContextHolder.getContext().setAuthentication(authentication);
 		String jwt = jwtUtils.generateJwtToken(authentication);
+		
+		//new
+		token = jwt;
+		System.out.println("jwt");
 		
 		UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();		
 		List<String> roles = userDetails.getAuthorities().stream()

@@ -3,7 +3,7 @@ package com.faith.app.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "roles")
+@Table(name = "tbl_role")
 public class Role {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

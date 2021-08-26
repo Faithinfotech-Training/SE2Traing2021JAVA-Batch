@@ -7,8 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="batches")
-public class Batches {
+@Table(name="batch")
+public class Batch {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -22,12 +22,12 @@ public class Batches {
 	private String endDate;
 	private Boolean isActive;
 	
-	public Batches() {
+	public Batch() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Batches(Long resourceId, Long courseId, String batchName, String batchInfo, int batchCapacity,
+	public Batch(Long resourceId, Long courseId, String batchName, String batchInfo, int batchCapacity,
 			String startDate, String endDate, Boolean isActive) {
 		super();
 		this.resourceId = resourceId;
