@@ -19,8 +19,8 @@ public class JwtUtils {
 	@Value("${faith.app.jwtSecret}")
 	private String jwtSecret;
 
-	@Value("${faith.app.jwtExpirationMs}")
-	private int jwtExpirationMs;
+//	@Value("${faith.app.jwtExpirationMs}")
+//	private int jwtExpirationMs;
 
 	public String generateJwtToken(Authentication authentication) {
 
@@ -32,6 +32,14 @@ public class JwtUtils {
 //				.setExpiration(new Date((new Date()).getTime() + jwtExpirationMs))
 //				.signWith(SignatureAlgorithm.HS512, jwtSecret)
 //				.compact();
+		
+		//printing on console
+		System.out.println("JWT token value(generateJwtToken method in JwtUtils) : " + Jwts.builder()
+				.setSubject((userPrincipal.getUsername()))
+				.setIssuedAt(new Date())
+				.signWith(SignatureAlgorithm.HS512, jwtSecret)
+				.compact());
+		
 		
 		return Jwts.builder()
 				.setSubject((userPrincipal.getUsername()))

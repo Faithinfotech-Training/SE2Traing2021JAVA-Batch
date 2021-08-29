@@ -14,13 +14,13 @@ public class ResourceEnquiry {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long resourceEnquiryId;
+	private long resourceEnquiryId;
 	
 	@Column(name="Guest_Id")
-	private Long guestId;
+	private long guestId;
 	
 	@Column(name="Resource_ID")
-	private Long resourceId;
+	private long resourceId;
 	
 	@Column(name="Date")
 	private String date;
@@ -28,28 +28,25 @@ public class ResourceEnquiry {
 	@Column(name="Enquiry_Status")
 	private String enquiryStatus;
 	
-	
-	
-	
+	@Column(name="Is_Active_Bit")
+	private boolean isActive;
+
 
 	public ResourceEnquiry() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
-	
 	
 	public ResourceEnquiry(Long resourceEnquiryId, Long guestId, Long resourceId, String date,
-			String enquiryStatus) {
+			String enquiryStatus, boolean isActive) {
 		super();
 		this.resourceEnquiryId = resourceEnquiryId;
 		this.guestId = guestId;
 		this.resourceId = resourceId;
 		this.date = date;
 		this.enquiryStatus = enquiryStatus;
+		this.isActive = isActive;
 	}
-
-
 
 	public Long getResourceEnquiryId() {
 		return resourceEnquiryId;
@@ -91,11 +88,13 @@ public class ResourceEnquiry {
 		this.enquiryStatus = enquiryStatus;
 	}
 	
-	
-	
-	
-	
-	
+	public boolean isActive() {
+		return isActive;
+	}
+
+	public void setActive(boolean isActive) {
+		this.isActive = isActive;
+	}
 	
 
 }

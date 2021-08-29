@@ -28,12 +28,13 @@ public class Resource {
 	@Column(name="Avaliable_Capacity")
 	private int avaliableCapacity;
 	
+	@Column(name="Resource_Description")
+	private String resourceDescription;
+	
 	@Column(name="Is_Active_Bit")
 	private boolean isActive;
 	
-	
-	
-	
+
 	
 	public Resource() {
 		super();
@@ -42,13 +43,14 @@ public class Resource {
 	
 	
 	public Resource(long resourceId, String resourceName, String resourceType, int maxCapacity,
-			int avaliableCapacity, boolean isActive) {
+			int avaliableCapacity, String resourceDescription, boolean isActive) {
 		super();
 		this.resourceId = resourceId;
 		this.resourceName = resourceName;
 		this.resourceType = resourceType;
 		this.maxCapacity = maxCapacity;
 		this.avaliableCapacity = avaliableCapacity;
+		this.resourceDescription = resourceDescription;
 		this.isActive = isActive;
 	}
 	public long getResourceId() {
@@ -75,6 +77,16 @@ public class Resource {
 	public void setMaxCapacity(int maxCapacity) {
 		this.maxCapacity = maxCapacity;
 	}
+	public String getResourceDescription() {
+		return resourceDescription;
+	}
+
+
+	public void setResourceDescription(String resourceDescription) {
+		this.resourceDescription = resourceDescription;
+	}
+
+
 	public int getAvaliableCapacity() {
 		return avaliableCapacity;
 	}
@@ -87,8 +99,5 @@ public class Resource {
 	public void setActive(boolean isActive) {
 		this.isActive = isActive;
 	}
-	
-	
-	
 
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,7 +19,7 @@ import com.faith.app.repository.ResourceRepository;
 
 @RestController
 @RequestMapping("/api/")
-public class ResourceManagementController {
+public class ResourceController {
 	
 	@Autowired
 	private ResourceRepository resourceRepository;
@@ -28,8 +29,6 @@ public class ResourceManagementController {
 	// Get All Resources
 	@GetMapping("/resource")
 	public List<Resource> getAllResources()
-	//public List<Resource> getAllResources(@RequestHeader("Authorization") + new String("Bearer "+ AuthController.jwt))
-
 	{
 		return resourceRepository.findAll();
 	}
@@ -43,7 +42,6 @@ public class ResourceManagementController {
 	}
 	
 	
-	
 	// Get the Resource by ID
 	@GetMapping("/resource/{resourceId}")
 	public ResponseEntity<Resource> getResourceById(@PathVariable Long resourceId)
@@ -55,7 +53,7 @@ public class ResourceManagementController {
 	
 	
 	
-	//Update the Resource by ID
+	//Update the Resource by ID	
 	@PutMapping("/resource/{resourceId}")
 	public ResponseEntity<Resource> updateResource(@PathVariable Long resourceId,@RequestBody Resource resourceDetails){
 		
@@ -72,6 +70,17 @@ public class ResourceManagementController {
 		return ResponseEntity.ok(updateResource);
 		
 	}
+//  trial-works!
+//	@PutMapping("/resource")
+//	public Resource updateResource(@RequestBody Resource resource)
+//	{
+//		return resourceRepository.save(resource);
+//	}
 	
+	@DeleteMapping("/resource/{resourceId}")
+	public void deleteResource(@PathVariable Long resourceId) {
+		Resource resource = resourceRepository.findById(resourceId).orElseThrow(()-> new RuntimeException("Resource with id=" + resourceId + " was not found."));
+		resource.setActive(false);
+	}
 
 }

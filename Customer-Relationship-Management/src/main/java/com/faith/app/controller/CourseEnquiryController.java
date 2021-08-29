@@ -54,6 +54,8 @@ public class CourseEnquiryController {
 		  enquiry.setCourseId(enquiryDetails.getCourseId());
 		  enquiry.setDate(enquiryDetails.getDate());
 		  enquiry.setGuestId(enquiryDetails.getGuestId());
+		  enquiry.setActive(enquiryDetails.isActive());
+		  enquiry.setEnquiryStatus(enquiryDetails.getEnquiryStatus());
 		 
 		  
 		  

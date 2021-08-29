@@ -27,8 +27,11 @@ public class CourseEnquiry {
 	
 	@Column(name="Enquiry_Status")
 	private String enquiryStatus;
-
 	
+	@Column(name="Is_Active_Bit")
+	private boolean isActive;
+
+
 	public CourseEnquiry() {
 		super();
 	}
@@ -91,6 +94,14 @@ public class CourseEnquiry {
 
 	public void setEnquiryStatus(String enquiryStatus) {
 		this.enquiryStatus = enquiryStatus;
+	}
+	
+	public boolean isActive() {
+		return isActive;
+	}
+
+	public void setActive(boolean isActive) {
+		this.isActive = isActive;
 	}
 	
 }
