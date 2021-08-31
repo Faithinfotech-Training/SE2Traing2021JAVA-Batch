@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 
+
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
@@ -15,13 +16,14 @@ import { BoardManagerComponent } from './board-manager/board-manager.component';
 import { BoardUserComponent } from './board-user/board-user.component';
 
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
-// new
+// new- Manager
 import { ManagerSiteVisitViewComponent } from './manager-site-visit-view/manager-site-visit-view.component';
 import { ManagerCourseEnquirySummaryComponent } from './manager-course-enquiry-summary/manager-course-enquiry-summary.component';
 import { ManagerResourceEnquirySummaryComponent } from './manager-resource-enquiry-summary/manager-resource-enquiry-summary.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
+//resources
 import { ResourceListComponent } from './resource-list/resource-list.component';
 import { CreateResourceComponent } from './create-resource/create-resource.component';
 import { ResourceEnquiryComponent } from './resource-enquiry/resource-enquiry.component';
@@ -57,7 +59,7 @@ import { SalesPipelineComponent } from './sales-pipeline/sales-pipeline.componen
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-   
+
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
