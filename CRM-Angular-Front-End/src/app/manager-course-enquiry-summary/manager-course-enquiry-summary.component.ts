@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../_services/user.service';
-
+import { CourseEnquiry } from '../course-enquiry';
+import { CourseEnquiryService } from '../course-enquiry.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-manager-course-enquiry-summary',
@@ -9,19 +11,19 @@ import { UserService } from '../_services/user.service';
 })
 export class ManagerCourseEnquirySummaryComponent implements OnInit {
 
-  content: string;
+  courseEnquiries: CourseEnquiry[];
+  courseEnquiry: CourseEnquiry = new CourseEnquiry();
 
-  constructor(private userService: UserService) { }
+  constructor(private courseEnquiryService: CourseEnquiryService, private router: Router) { }
 
   ngOnInit(): void {
-    this.userService.getManagerCourseEnquirySummary().subscribe(
-      data => {
-        this.content = data;
-      },
-      err => {
-        this.content = JSON.parse(err.error).message;
-      }
-    );
+    this.getCourseEnquiries();
+  }
+
+  getCourseEnquiries() {
+      this.courseEnquiryService.getCourseEnquiryList().subscribe(data => {
+      this.courseEnquiries = data;
+    });
   }
 
 }

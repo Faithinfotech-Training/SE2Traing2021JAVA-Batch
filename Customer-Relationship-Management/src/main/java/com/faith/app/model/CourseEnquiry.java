@@ -1,10 +1,13 @@
 package com.faith.app.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -16,17 +19,20 @@ public class CourseEnquiry {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long courseEnquiryId;
 	
-	@Column(name="Guest_ID")
+	@ManyToOne(cascade= {CascadeType.PERSIST, CascadeType.MERGE}, targetEntity=Guest.class)
+	@JoinColumn(name="guest_id")
 	private Long guestId;
 	
-	@Column(name="Course_ID")
+	@ManyToOne(cascade=CascadeType.MERGE, targetEntity=Course.class)
+	@JoinColumn(name="course_id")
 	private Long courseId;
 	
-	@Column(name="Date")
-	private String date;
+	@Column(name="date")
+	private String enquiryDate;
 	
-	@Column(name="Enquiry_Status")
-	private String enquiryStatus;
+	@ManyToOne(cascade=CascadeType.REFRESH, targetEntity=CourseEnquiryStatus.class)
+	@JoinColumn(name="status_id")
+	private CourseEnquiryStatus enquiryStatus;
 	
 	@Column(name="Is_Active_Bit")
 	private boolean isActive;
@@ -37,12 +43,12 @@ public class CourseEnquiry {
 	}
 	
 	
-	public CourseEnquiry(Long courseEnquiryId, Long guestId, Long courseId, String date, String enquiryStatus) {
+	public CourseEnquiry(Long courseEnquiryId, Long guestId, Long courseId, String date, CourseEnquiryStatus enquiryStatus) {
 		super();
 		this.courseEnquiryId = courseEnquiryId;
 		this.guestId = guestId;
 		this.courseId = courseId;
-		this.date = date;
+		this.enquiryDate = date;
 		this.enquiryStatus = enquiryStatus;
 	}
 
@@ -78,21 +84,21 @@ public class CourseEnquiry {
 
 
 	public String getDate() {
-		return date;
+		return enquiryDate;
 	}
 
 
 	public void setDate(String date) {
-		this.date = date;
+		this.enquiryDate = date;
 	}
 
 
-	public String getEnquiryStatus() {
+	public CourseEnquiryStatus getEnquiryStatus() {
 		return enquiryStatus;
 	}
 
 
-	public void setEnquiryStatus(String enquiryStatus) {
+	public void setEnquiryStatus(CourseEnquiryStatus enquiryStatus) {
 		this.enquiryStatus = enquiryStatus;
 	}
 	

@@ -57,15 +57,11 @@ public class CourseEnquiryController {
 		  enquiry.setActive(enquiryDetails.isActive());
 		  enquiry.setEnquiryStatus(enquiryDetails.getEnquiryStatus());
 		 
-		  
-		  
 		  CourseEnquiry enquiryUpdate=courseEnquiryRepository.save(enquiry);
 		  return ResponseEntity.ok(enquiryUpdate);
-		  
-	
+
 	}
-	
-	
+
 	
 	//Update the Enquiry status for particular ID
 	@PutMapping("/resource/enquiry/{enquiryId}/status")

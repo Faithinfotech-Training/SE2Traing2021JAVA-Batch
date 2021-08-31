@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../_services/user.service';
+import { ResourceEnquiry } from '../resource-enquiry';
+import { ResourceEnquiryService } from '../resource-enquiry.service';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -9,18 +13,31 @@ import { UserService } from '../_services/user.service';
 })
 export class ManagerResourceEnquirySummaryComponent implements OnInit {
 
-  content: string;
+  resourceEnquiries: ResourceEnquiry[];
+  resourceEnquiry: ResourceEnquiry = new ResourceEnquiry();
 
-  constructor(private userService: UserService) { }
+  constructor(private resourceEnquiryService: ResourceEnquiryService, private router: Router) { }
 
   ngOnInit(): void {
-    this.userService.getManagerResourceEnquirySummary().subscribe(
-      data => {
-        this.content = data;
-      },
-      err => {
-        this.content = JSON.parse(err.error).message;
-      }
-    );
+    this.getResourceEnquiries();
   }
+
+  getResourceEnquiries() {
+    this.resourceEnquiryService.getResourceEnquiryList().subscribe(data => {
+      this.resourceEnquiries = data;
+    });
+  }
+
+
+  // goToResourceList() {
+  //   this.router.navigate(['/resources']);
+
+
+  // }
+
+  // onSubmit() {
+  //   console.log(this.resource);
+  //   this.saveResource();
+  //   window.location.reload();
+  // }
 }

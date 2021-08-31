@@ -5,12 +5,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="resource")
 public class Resource {
-	
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -19,8 +20,13 @@ public class Resource {
 	@Column(name="Resource_Name")
 	private String resourceName;
 	
-	@Column(name="Resource_Type")
-	private String resourceType;
+	@ManyToOne
+	@JoinColumn(name="resourceTypeId")
+	private ResourceType resourceType;
+	
+	@ManyToOne
+	@JoinColumn(name="accessId")
+	private Access access;
 	
 	@Column(name="Max_Capacity")
 	private int maxCapacity;
@@ -34,20 +40,18 @@ public class Resource {
 	@Column(name="Is_Active_Bit")
 	private boolean isActive;
 	
-
-	
 	public Resource() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	
-	
-	public Resource(long resourceId, String resourceName, String resourceType, int maxCapacity,
+	public Resource(long resourceId, String resourceName, ResourceType resourceType, Access access, int maxCapacity,
 			int avaliableCapacity, String resourceDescription, boolean isActive) {
 		super();
 		this.resourceId = resourceId;
 		this.resourceName = resourceName;
 		this.resourceType = resourceType;
+		this.access = access;
 		this.maxCapacity = maxCapacity;
 		this.avaliableCapacity = avaliableCapacity;
 		this.resourceDescription = resourceDescription;
@@ -59,16 +63,22 @@ public class Resource {
 	public void setResourceId(long resourceId) {
 		this.resourceId = resourceId;
 	}
+	public Access getAccess() {
+		return access;
+	}
+	public void setAccess(Access access) {
+		this.access = access;
+	}
 	public String getResourceName() {
 		return resourceName;
 	}
 	public void setResourceName(String resourceName) {
 		this.resourceName = resourceName;
 	}
-	public String getResourceType() {
+	public ResourceType getResourceType() {
 		return resourceType;
 	}
-	public void setResourceType(String resourceType) {
+	public void setResourceType(ResourceType resourceType) {
 		this.resourceType = resourceType;
 	}
 	public int getMaxCapacity() {
@@ -80,13 +90,9 @@ public class Resource {
 	public String getResourceDescription() {
 		return resourceDescription;
 	}
-
-
 	public void setResourceDescription(String resourceDescription) {
 		this.resourceDescription = resourceDescription;
 	}
-
-
 	public int getAvaliableCapacity() {
 		return avaliableCapacity;
 	}

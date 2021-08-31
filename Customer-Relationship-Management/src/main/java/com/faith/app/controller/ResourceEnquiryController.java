@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.faith.app.exception.ResourceNotFoundException;
 import com.faith.app.model.ResourceEnquiry;
 import com.faith.app.repository.ResourceEnquiryRepository;
-import com.faith.app.service.ResourceEnquiryService;
+import com.faith.app.service.ManagerResourceEnquiryService;
 
 @RestController
 @RequestMapping("/api/")
@@ -24,7 +24,7 @@ public class ResourceEnquiryController {
 	
 	//Code using Service layer
 	@Autowired
-	private ResourceEnquiryService resourceEnquiryService;
+	private ManagerResourceEnquiryService resourceEnquiryService;
 	//	private final ResourceEnquiryService resourceEnquiryService;
 //	
 //	public ResourceEnquiryManagementController(ResourceEnquiryService resourceEnquiryService) {
@@ -74,10 +74,6 @@ public class ResourceEnquiryController {
 	}
 	
 	
-	
-	
-	
-
 	
 	
 //// Code for not using Service layer

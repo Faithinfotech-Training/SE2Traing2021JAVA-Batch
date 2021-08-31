@@ -1,10 +1,15 @@
 package com.faith.app.model;
 
+import java.time.LocalDate;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -15,18 +20,35 @@ public class ResourceEnquiry {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long resourceEnquiryId;
+
+//	old
+//	@Column(name="Guest_Id")
+//	private long guestId;
+//	
+//	@Column(name="Resource_ID")
+//	private long resourceId;
+//	old	
+// 	similar for CourseEnquiry
 	
-	@Column(name="Guest_Id")
-	private long guestId;
+//	@Column(name="Enquiry_Status")
+//	private String enquiryStatus;
 	
-	@Column(name="Resource_ID")
-	private long resourceId;
+	
+//	new	
+	@ManyToOne(cascade=CascadeType.MERGE, targetEntity=Guest.class)
+	@JoinColumn(name = "guestId")
+	private Guest guestId;
+	
+	@ManyToOne(cascade=CascadeType.MERGE, targetEntity=Resource.class)
+	@JoinColumn(name="resourceId")
+	private Resource resourceId;
 	
 	@Column(name="Date")
-	private String date;
+	private LocalDate date;
 	
-	@Column(name="Enquiry_Status")
-	private String enquiryStatus;
+	@ManyToOne(cascade=CascadeType.REFRESH, targetEntity=ResourceEnquiryStatus.class)
+	@JoinColumn(name="status_id")
+	private ResourceEnquiryStatus enquiryStatus;
 	
 	@Column(name="Is_Active_Bit")
 	private boolean isActive;
@@ -37,13 +59,12 @@ public class ResourceEnquiry {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public ResourceEnquiry(Long resourceEnquiryId, Long guestId, Long resourceId, String date,
-			String enquiryStatus, boolean isActive) {
+	public ResourceEnquiry(Long resourceEnquiryId, Guest guestId, Resource resourceId, LocalDate date, ResourceEnquiryStatus enquiryStatus, boolean isActive) {
 		super();
 		this.resourceEnquiryId = resourceEnquiryId;
 		this.guestId = guestId;
 		this.resourceId = resourceId;
-		this.date = date;
+		this.date = LocalDate.now();
 		this.enquiryStatus = enquiryStatus;
 		this.isActive = isActive;
 	}
@@ -56,37 +77,47 @@ public class ResourceEnquiry {
 		this.resourceEnquiryId = resourceEnquiryId;
 	}
 
-	public Long getGuestId() {
+	public Guest getGuestId() {
 		return guestId;
 	}
 
-	public void setGuestId(Long guestId) {
+	public void setGuestId(Guest guestId) {
 		this.guestId = guestId;
 	}
 
-	public Long getResourceId() {
+	public Resource getResourceId() {
 		return resourceId;
 	}
 
-	public void setResourceId(Long resourceId) {
+	public void setResourceId(Resource resourceId) {
 		this.resourceId = resourceId;
 	}
 
-	public String getDate() {
+	public LocalDate getDate() {
 		return date;
 	}
 
-	public void setDate(String date) {
+	public void setDate(LocalDate date) {
 		this.date = date;
 	}
 
-	public String getEnquiryStatus() {
+//	new	
+	public ResourceEnquiryStatus getEnquiryStatus() {
 		return enquiryStatus;
 	}
 
-	public void setEnquiryStatus(String enquiryStatus) {
+	public void setEnquiryStatus(ResourceEnquiryStatus enquiryStatus) {
 		this.enquiryStatus = enquiryStatus;
 	}
+	
+//	old	
+//	public String getEnquiryStatus() {
+//		return enquiryStatus;
+//	}
+//
+//	public void setEnquiryStatus(String enquiryStatus) {
+//		this.enquiryStatus = enquiryStatus;
+//	}
 	
 	public boolean isActive() {
 		return isActive;
