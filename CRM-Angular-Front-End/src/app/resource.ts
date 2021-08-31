@@ -5,4 +5,5 @@ export class Resource {
     maxCapacity: number;
     avaliableCapacity: number;
     isActive: boolean;
+
 }

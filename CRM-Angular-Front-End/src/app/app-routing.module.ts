@@ -15,6 +15,8 @@ import { CreateResourceComponent } from './create-resource/create-resource.compo
 import { ResourceListComponent } from './resource-list/resource-list.component';
 import { ResourceEnquiryComponent } from './resource-enquiry/resource-enquiry.component';
 import { ResourceDisplayComponent } from './resource-display/resource-display.component';
+import { UpdateResourceComponent } from './update-resource/update-resource.component';
+import { SalesPipelineComponent } from './sales-pipeline/sales-pipeline.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -33,6 +35,8 @@ const routes: Routes = [
   {path:'resources', component:ResourceListComponent},
   {path:'resource-enquiry',component: ResourceEnquiryComponent},
   {path:'resource-display',component: ResourceDisplayComponent},
+  {path:'update-resource/:resourceId',component: UpdateResourceComponent},
+  {path:'sales-pipeline',component: SalesPipelineComponent},
 
   { path: 'admin', component: BoardAdminComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }

@@ -10,8 +10,10 @@ import { Router } from '@angular/router';
 })
 export class ResourceListComponent implements OnInit {
 
+  data:any;
   resources: Resource[];
   resource:Resource=new Resource();
+
 
   constructor(private resourceService: ResourceService,private router: Router) { }
 
@@ -20,7 +22,6 @@ export class ResourceListComponent implements OnInit {
   }
 
   getResources(){
-      console.log(this.resources);
      this.resourceService.getResourcesList().subscribe(data => {
       this.resources=data;
     });
@@ -42,6 +43,12 @@ export class ResourceListComponent implements OnInit {
     
   }
   
+updateResource(id:number){
+  this.router.navigate(['update-resource',id]);
+  
+
+}
+
     onSubmit(){
     console.log(this.resource);
       this.saveResource();

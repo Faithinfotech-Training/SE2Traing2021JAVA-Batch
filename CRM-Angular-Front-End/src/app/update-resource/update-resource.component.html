@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="jumbotron">
+    <h2 class="text-center">Update Resource</h2> 
+</div>
+
+    <!-- <form > -->
+  <form (ngSubmit)="onSubmit()" #form="ngForm"> 
+     <div class="form-group">
+         <label >Resource Name</label>
+         <input type="text" class="form-control" id="resourceName" [(ngModel)]="resource.resourceName" name="resourceName" required>
+        
+     </div> 
+ 
+     <div class="form-group">
+         <label >Resource Type</label>
+         <input type="text" class="form-control" id="resourceType" [(ngModel)]="resource.resourceType" name="resourceType">
+     </div>
+ 
+ 
+     <div class="form-group">
+         <label >Available Capacity</label>
+         <input type="text" class="form-control" id="avaliableCapacity" [(ngModel)]="resource.avaliableCapacity" name="avaliableCapacity">
+     </div>
+ 
+     <div class="form-group">
+         <label >Max Capacity</label>
+         <input type="text" class="form-control" id="maxCapacity" [(ngModel)]="resource.maxCapacity" name="maxCapacity">
+     </div>
+ 
+     
+     <div class="form-group">
+         <label>Resource Active:</label><br>
+         <label>True
+             <input type="radio" id="isActive" [(ngModel)]="resource.isActive" name="isActive" value="true" />
+          </label> 
+          <label>  False
+             <input type="radio"id="isActive" [(ngModel)]="resource.isActive" name="isActive" value="false" />
+          </label>
+     </div>
+  
+     <button  type="submit" class="btn btn-success">Update</button>
+   
+ </form>
+
+     </div>
+  
