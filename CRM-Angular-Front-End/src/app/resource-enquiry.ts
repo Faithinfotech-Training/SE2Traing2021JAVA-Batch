@@ -5,5 +5,5 @@ export class ResourceEnquiry {
     guestPhoneNumber: String;
     resourceName: String;
     enquiryStatus: String;
-    enquiryDate: string;
+    enquiryDate: String;
 }

@@ -17,7 +17,7 @@ import javax.persistence.ManyToMany;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
-public class CourseQualification {
+public class Qualification {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,9 +25,6 @@ public class CourseQualification {
 	
 	@Column(nullable = false , length = 50)
 	private String qualificationName;
-	
-	@Column(nullable = false , length = 5)
-	private String percentage;
 
 //	@ManyToMany(mappedBy = "courses", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER )
 //	private Set<Course> courses = new HashSet<>();
@@ -39,7 +36,7 @@ public class CourseQualification {
 	@JsonBackReference
 	private Set<Course> courses = new HashSet<>();
 	
-	public CourseQualification() {
+	public Qualification() {
 		super();
 	}
 
@@ -51,10 +48,9 @@ public class CourseQualification {
 		this.courses = courses;
 	}
 
-	public CourseQualification(String qualificationName, String percentage) {
+	public Qualification(String qualificationName, String percentage) {
 		super();
 		this.qualificationName = qualificationName;
-		this.percentage = percentage;
 	}
 
 	public int getQualificationId() {
@@ -73,18 +69,10 @@ public class CourseQualification {
 		this.qualificationName = qualificationName;
 	}
 
-	public String getPercentage() {
-		return percentage;
-	}
-
-	public void setPercentage(String percentage) {
-		this.percentage = percentage;
-	}
-
 	@Override
 	public String toString() {
 		return "Qualification [qualificationId=" + qualificationId + ", qualificationName=" + qualificationName
-				+ ", percentage=" + percentage + ", courses=" + courses + "]";
+				+ ", courses=" + courses + "]";
 	}
 
 }

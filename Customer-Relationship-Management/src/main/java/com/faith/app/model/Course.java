@@ -52,7 +52,7 @@ public class Course {
 	@ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST})
 	@JoinTable(name = "qualification_course", joinColumns = {
 			@JoinColumn(name = "course_id") }, inverseJoinColumns = { @JoinColumn(name = "qualification_id") })
-	private Set<CourseQualification> qualifications = new HashSet<>();
+	private Set<Qualification> qualifications = new HashSet<>();
     
 	public Course() {
 		super();
@@ -60,7 +60,7 @@ public class Course {
 	
 	public Course(Long courseId, String course_name, String course_description, String course_duration,
 			float course_price, float min_percentage, int ageCriteria, boolean is_active, Access access,
-			Set<CourseQualification> qualifications) {
+			Set<Qualification> qualifications) {
 		super();
 		this.courseId = courseId;
 		this.course_name = course_name;
@@ -107,11 +107,11 @@ public class Course {
 		this.access = access;
 	}
 
-	public Set<CourseQualification> getQualifications() {
+	public Set<Qualification> getQualifications() {
 		return qualifications;
 	}
 
-	public void setQualifications(Set<CourseQualification> qualifications) {
+	public void setQualifications(Set<Qualification> qualifications) {
 		this.qualifications = qualifications;
 	}
 
