@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class ResourceListComponent implements OnInit {
 
+  resourceName:String;
   data:any;
   resources: Resource[];
   resource:Resource=new Resource();
@@ -53,6 +54,20 @@ updateResource(id:number){
     console.log(this.resource);
       this.saveResource();
       window.location.reload();
+    }
+
+
+    Search(){
+      if(this.resourceName !=""){
+        this.resources=this.resources.filter(res=>{
+          return res.resourceName.toLowerCase().match(this.resourceName.toLowerCase());
+        })
+
+      }else if(this.resourceName == "")
+      {
+        this.ngOnInit();
+      }
+    
     }
   
 
