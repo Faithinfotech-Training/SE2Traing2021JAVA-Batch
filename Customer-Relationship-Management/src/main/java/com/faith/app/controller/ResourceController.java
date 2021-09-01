@@ -1,6 +1,8 @@
 package com.faith.app.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -84,5 +86,21 @@ public class ResourceController {
 		Resource resource = resourceRepository.findById(resourceId).orElseThrow(()-> new RuntimeException("Resource with id=" + resourceId + " was not found."));
 		resource.setActive(false);
 	}
+	
+//	@DeleteMapping("/resource/{resourceId}")
+//	public  ResponseEntity<Map<String, Boolean>> deleteResource(@PathVariable Long resourceId)
+//	{
+//			Resource resource= resourceRepository.findById(resourceId)
+//					.orElseThrow(()-> new ResourceNotFoundException("Resource does not Exist with id"+ resourceId));
+//			
+//			resource.setActive(false);
+//			
+//			resourceRepository.delete(resource);
+//			Map<String , Boolean> response=new HashMap<>();
+//			response.put("deleted", Boolean.TRUE);
+//			return ResponseEntity.ok(response);
+//	}
+//	
+//	
 
 }

@@ -11,8 +11,9 @@
 <table class="table table-striped">
     <thead>
         <tr>
-            <th>Name</th>
-            <th>Type</th>
+            <th>Resource Name</th>
+            <th>Resource Type</th>
+            <th>Resource Description</th>
             <th>Available Capacity</th>
             <th>Max Capacity</th> 
             <th>Is Active</th>
@@ -25,11 +26,13 @@
         <tr  *ngFor = "let resources of resources">
             <td>{{resources.resourceName}}</td>
             <td>{{resources.resourceType.resourceTypeString}}</td>
+            <td>{{resources.resourceDescription}}</td>
             <td>{{resources.avaliableCapacity}}</td>
             <td>{{resources.maxCapacity}}</td>
             <td>{{resources.isActive}}</td>
             <td>
-                <button (click)="updateResource(resources.resourceId)" class="btn btn-info">Update</button>
+                <button (click)="updateResource(resources.resourceId)" class="btn btn-info"><i class="fa fa-edit"></i></button>
+                <button (click)="deleteResource(resources.resourceId)" class="btn btn-danger" ><i class="fa fa-trash"></i></button>
             </td>
         </tr>
 
@@ -38,7 +41,11 @@
     </div>
     <div class="col">
         <div class="container">
-   <h2>Create Resource</h2> 
+            <br>
+            <br>
+            <br>
+            <br>
+   <h2 class="text-center">Create Resource</h2> 
    
 
       
@@ -76,7 +83,7 @@
          </label>
     </div>
 
-    <button type="submit" class="btn btn-success">Add</button>
+    <button type="submit" class="btn btn-success ">Add Resource</button>
 
 </form>
 
