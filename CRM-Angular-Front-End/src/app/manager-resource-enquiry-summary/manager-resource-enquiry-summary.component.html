@@ -19,11 +19,11 @@
       <tbody>
           <tr *ngFor="let resourceEnquiry of resourceEnquiries">
               <td>{{resourceEnquiry.resourceEnquiryId}}</td>
-              <td>{{resourceEnquiry.guestName}}</td>
-              <td>{{resourceEnquiry.guestEmail}}</td>
-              <td>{{resourceEnquiry.guestPhoneNumber}}</td>
-              <td>{{resourceEnquiry.resourceName}}</td>
-              <td>{{resourceEnquiry.enquiryStatus}}</td>
+              <td>{{resourceEnquiry.guestId.guestName}}</td>
+              <td>{{resourceEnquiry.guestId.guestEmail}}</td>
+              <td>{{resourceEnquiry.guestId.guestPhoneNumber}}</td>
+              <td>{{resourceEnquiry.resourceId.resourceName}}</td>
+              <td>{{resourceEnquiry.enquiryStatus.statusType}}</td>
               <td>{{resourceEnquiry.date}}</td>
           </tr>
 

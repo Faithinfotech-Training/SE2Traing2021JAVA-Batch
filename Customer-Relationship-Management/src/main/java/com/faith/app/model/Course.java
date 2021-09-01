@@ -44,7 +44,6 @@ public class Course {
 	@Column(nullable = false)
     private boolean is_active;
 
-    
 	@ManyToOne
 	@JoinColumn(name = "accessId")
 	private Access access;

@@ -24,7 +24,7 @@
        
         <tr  *ngFor = "let resources of resources">
             <td>{{resources.resourceName}}</td>
-            <td>{{resources.resourceType}}</td>
+            <td>{{resources.resourceType.resourceTypeString}}</td>
             <td>{{resources.avaliableCapacity}}</td>
             <td>{{resources.maxCapacity}}</td>
             <td>{{resources.isActive}}</td>
