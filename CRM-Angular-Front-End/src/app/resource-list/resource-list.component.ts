@@ -44,8 +44,8 @@ export class ResourceListComponent implements OnInit {
     
   }
   
-updateResource(id:number){
-  this.router.navigate(['update-resource',id]);
+updateResource(resourceId:number){
+  this.router.navigate(['update-resource',resourceId]);
   
 
 }
