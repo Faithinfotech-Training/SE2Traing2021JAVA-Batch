@@ -17,7 +17,7 @@ import com.faith.app.model.Course;
 import com.faith.app.repository.CourseRepository;
 import com.faith.app.service.CourseService;
 
-@CrossOrigin(origins="*")
+@CrossOrigin(origins = "*")
 @RestController
 public class CourseController{
 	
