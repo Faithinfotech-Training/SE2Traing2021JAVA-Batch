@@ -32,7 +32,7 @@ import com.faith.app.response.MessageResponse;
 import com.faith.app.security.jwt.JwtUtils;
 import com.faith.app.security.services.UserDetailsImpl;
 
-@CrossOrigin(origins = "*", maxAge = 3600)
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
