@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.faith.app.model.CourseEnquiry;
 import com.faith.app.service.ManagerCourseEnquiryService;
 
-@CrossOrigin
+@CrossOrigin(origins="*")
 @RestController
 @RequestMapping("/api/enquiry")
 public class ManagerCourseEnquiryViewController {

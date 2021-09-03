@@ -18,6 +18,12 @@ import { ResourceDisplayComponent } from './resource-display/resource-display.co
 import { UpdateResourceComponent } from './update-resource/update-resource.component';
 import { SalesPipelineComponent } from './sales-pipeline/sales-pipeline.component';
 
+import { CreateCourseComponent } from './create-course/create-course.component';
+import { CourseListComponent } from './course-list/course-list.component';
+import { CourseEnquiryComponent } from './course-enquiry/course-enquiry.component';
+import { CourseDisplayComponent } from './course-display/course-display.component';
+import { UpdateCourseComponent } from './update-course/update-course.component';
+
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
@@ -37,6 +43,13 @@ const routes: Routes = [
   {path:'resource-display',component: ResourceDisplayComponent},
   {path:'update-resource/:resourceId',component: UpdateResourceComponent},
   {path:'sales-pipeline',component: SalesPipelineComponent},
+
+  {path:'create-course',component: CreateCourseComponent},
+  {path:'courses', component:CourseListComponent},
+  {path:'course-enquiry',component: CourseEnquiryComponent},
+  {path:'update-course/:id', component:UpdateCourseComponent},
+  {path:'course-display',component: CourseDisplayComponent},
+  
 
   { path: 'admin', component: BoardAdminComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
