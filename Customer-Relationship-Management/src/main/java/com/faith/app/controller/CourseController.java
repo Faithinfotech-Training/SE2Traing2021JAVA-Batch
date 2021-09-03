@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,11 +12,12 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.faith.app.repository.CourseRepository;
-import com.faith.app.service.CourseService;
 import com.faith.app.exception.CourseNotFoundException;
 import com.faith.app.model.Course;
+import com.faith.app.repository.CourseRepository;
+import com.faith.app.service.CourseService;
 
+@CrossOrigin(origins="*")
 @RestController
 public class CourseController{
 	

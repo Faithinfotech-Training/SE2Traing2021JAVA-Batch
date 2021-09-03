@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="jumbotron">
+    <h2 class="text-center">Update Course</h2> 
+</div>
+
+    <form >
+ <!-- <form (ngSubmit)="onSubmit()" #form="ngForm"> -->
+     <div class="form-group">
+         <label >Course Name</label>
+         <input type="text" class="form-control" id="courseName" [(ngModel)]="course.courseName" name="courseName" required>
+        
+     </div> 
+ 
+     <div class="form-group">
+         <label >Course Description</label>
+         <input type="text" class="form-control" id="courseDescription" [(ngModel)]="course.courseDescription" name="courseDescription">
+     </div>
+ 
+ 
+     <div class="form-group">
+         <label >Course Duration </label>
+         <input type="text" class="form-control" id="courseDuration" [(ngModel)]="course.courseDuration" name="courseDuration">
+     </div>
+ 
+     <div class="form-group">
+         <label >Course Price</label>
+         <input type="text" class="form-control" id="coursePrice" [(ngModel)]="course.coursePrice" name="coursePrice">
+     </div>
+ 
+     
+     <div class="form-group">
+         <label>Course Active:</label><br>
+         <label>True
+             <input type="radio" id="isActive" [(ngModel)]="course.isActive" name="isActive" value="true" />
+          </label> 
+          <label>  False
+             <input type="radio"id="isActive" [(ngModel)]="course.isActive" name="isActive" value="false" />
+          </label>
+     </div>
+  
+     <button  type="submit" class="btn btn-success">Update</button>
+   
+ </form>
+
+     </div>
+  

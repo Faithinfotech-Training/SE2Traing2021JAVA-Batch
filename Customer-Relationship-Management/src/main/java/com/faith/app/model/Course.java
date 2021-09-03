@@ -24,25 +24,25 @@ public class Course {
     private Long courseId;
 
 	@Column(nullable = false , length = 50)
-	private String course_name;
+	private String courseName;
 	
 	@Column(nullable = false)
-    private String course_description;
+    private String courseDescription;
 	
 	@Column(nullable = false , length = 50)
-    private String course_duration;
+    private String courseDuration;
 	
 	@Column(nullable = false , length = 50)
-    private float course_price;
+    private float coursePrice;
 	
 	@Column(nullable = false)
-	private float min_percentage;
+	private float minPercentage;
 	
 	@Column(nullable = false)
     private int ageCriteria;
 	
 	@Column(nullable = false)
-    private boolean is_active;
+    private boolean isActive;
 
 	@ManyToOne
 	@JoinColumn(name = "accessId")
@@ -57,31 +57,24 @@ public class Course {
 		super();
 	}
 	
-	public Course(Long courseId, String course_name, String course_description, String course_duration,
-			float course_price, float min_percentage, int ageCriteria, boolean is_active, Access access,
+	public Course(Long courseId, String courseName, String courseDescription, String courseDuration,
+			float coursePrice, float minPercentage, int ageCriteria, boolean isActive, Access access,
 			Set<Qualification> qualifications) {
 		super();
 		this.courseId = courseId;
-		this.course_name = course_name;
-		this.course_description = course_description;
-		this.course_duration = course_duration;
-		this.course_price = course_price;
-		this.min_percentage = min_percentage;
+		this.courseName = courseName;
+		this.courseDescription = courseDescription;
+		this.courseDuration = courseDuration;
+		this.coursePrice = coursePrice;
+		this.minPercentage = minPercentage;
 		this.ageCriteria = ageCriteria;
-		this.is_active = is_active;
+		this.isActive = isActive;
 		this.access = access;
 		this.qualifications = qualifications;
 	}
+
 	
-	public float getMin_percentage() {
-		return min_percentage;
-	}
-	public void setMin_percentage(float min_percentage) {
-		this.min_percentage = min_percentage;
-	}
-	public boolean isIs_active() {
-		return is_active;
-	}
+	
 	public Long getCourseId() {
 		return courseId;
 	}
@@ -90,12 +83,60 @@ public class Course {
 		this.courseId = courseId;
 	}
 
+	public String getCourseName() {
+		return courseName;
+	}
+
+	public void setCourseName(String courseName) {
+		this.courseName = courseName;
+	}
+
+	public String getCourseDescription() {
+		return courseDescription;
+	}
+
+	public void setCourseDescription(String courseDescription) {
+		this.courseDescription = courseDescription;
+	}
+
+	public String getCourseDuration() {
+		return courseDuration;
+	}
+
+	public void setCourseDuration(String courseDuration) {
+		this.courseDuration = courseDuration;
+	}
+
+	public float getCoursePrice() {
+		return coursePrice;
+	}
+
+	public void setCoursePrice(float coursePrice) {
+		this.coursePrice = coursePrice;
+	}
+
+	public float getMinPercentage() {
+		return minPercentage;
+	}
+
+	public void setMinPercentage(float minPercentage) {
+		this.minPercentage = minPercentage;
+	}
+
 	public int getAgeCriteria() {
 		return ageCriteria;
 	}
 
 	public void setAgeCriteria(int ageCriteria) {
 		this.ageCriteria = ageCriteria;
+	}
+
+	public boolean isActive() {
+		return isActive;
+	}
+
+	public void setActive(boolean isActive) {
+		this.isActive = isActive;
 	}
 
 	public Access getAccess() {
@@ -113,41 +154,6 @@ public class Course {
 	public void setQualifications(Set<Qualification> qualifications) {
 		this.qualifications = qualifications;
 	}
-
-	public void setIs_active(boolean is_active) {
-		this.is_active = is_active;
-	}
-
-	public String getCourse_name() {
-		return course_name;
-	}
-	public void setCourse_name(String course_name) {
-		this.course_name = course_name;
-	}
-	public String getCourse_description() {
-		return course_description;
-	}
-	public void setCourse_description(String course_description) {
-		this.course_description = course_description;
-	}
-	public String getCourse_duration() {
-		return course_duration;
-	}
-	public void setCourse_duration(String course_duration) {
-		this.course_duration = course_duration;
-	}
-
-	public Long getCourse_id() {
-		return courseId;
-	}
-	public void setCourse_id(Long course_id) {
-		this.courseId = course_id;
-	}
-	public float getCourse_price() {
-		return course_price;
-	}
-	public void setCourse_price(float course_price) {
-		this.course_price = course_price;
-	}
-    
+	
+	
 }

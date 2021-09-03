@@ -32,6 +32,14 @@ import { UpdateResourceComponent } from './update-resource/update-resource.compo
 import { SalesPipelineComponent } from './sales-pipeline/sales-pipeline.component';
 import { CourseListComponent } from './course-list/course-list.component';
 
+
+import { CreateCourseComponent } from './create-course/create-course.component';
+import { CourseEnquiryComponent } from './course-enquiry/course-enquiry.component';
+import { CourseDisplayComponent } from './course-display/course-display.component';
+import { UpdateCourseComponent } from './update-course/update-course.component';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,7 +61,12 @@ import { CourseListComponent } from './course-list/course-list.component';
     ResourceDisplayComponent,
     UpdateResourceComponent,
     SalesPipelineComponent,
-    CourseListComponent
+
+    CourseListComponent,
+    CreateCourseComponent,
+    CourseEnquiryComponent,
+    CourseDisplayComponent,
+    UpdateCourseComponent
   ],
   imports: [
     BrowserModule,

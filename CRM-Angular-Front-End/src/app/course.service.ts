@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Course } from './course';
 import { Observable } from 'rxjs';
-
 @Injectable({
   providedIn: 'root'
 })
@@ -12,7 +11,7 @@ export class CourseService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getCourseList():Observable<Course[]> {
+  getCoursesList():Observable<Course[]> {
     return this.httpClient.get<Course[]>(`${this.baseUrl}`);
   }
   createCourse(course: Course): Observable<Object>{
@@ -21,7 +20,6 @@ export class CourseService {
 
   getCourseById(courseId:number): Observable<Course>{
     return this.httpClient.get<Course>(`${this.baseUrl}/${courseId}`);
- 
   }
 
   updateCourse(courseId:number, course:Course):Observable<object>{

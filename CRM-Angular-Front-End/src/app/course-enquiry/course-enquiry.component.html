@@ -1,11 +1,10 @@
 
 <div class="jumbotron">
-<h1 class="text-center">Resource Enquiry Form</h1>
+<h1 class="text-center">Course Enquiry Form</h1>
 </div>
 <div class="container">
     <form> 
   <!-- <form (ngSubmit)="onSubmit()">  -->
-      
     <div class="form-group">
         <label >Name</label>
         <input type="text" class="form-control" id="guestName" name="guestName">
@@ -21,8 +20,27 @@
         <label >Contact Number</label>
         <input type="digits" class="form-control" id="guestMobile" name="guestMobile">
     </div>
+
+    <div class="form-group"> 
+        <label >DOB:</label>
+        <!-- <span><i aria-hidden="true" class=""></i></span> -->
+        <input type="date" class="form-control" id="guestBirthDate" name="guestBirthDate">
+    </div>
+
+    <div class="form-group">
+        <label >Qualification</label>
+        <input type="text" class="form-control" id="guestQualification" name="guestQualification">
+    </div>
+
+    <div class="form-group">
+        <label >Marks</label>
+        <input type="text" class="form-control" id="guestMarks" name="guestMarks">
+    </div>
     
     <button  type="submit"  class="btn btn-success">Submit Form</button>
     
 </form>
 </div>
+
+
+ 
