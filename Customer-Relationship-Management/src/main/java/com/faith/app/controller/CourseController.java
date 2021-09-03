@@ -29,14 +29,14 @@ public class CourseController{
     }
     
     /*Add Course*/
-    @PostMapping("/api/courses/add")
+    @PostMapping("/api/courses")
     public ResponseEntity<Object> createUser(@RequestBody Course course) {
     	
     	return courseService.createCourse(course);
     }
     
     //get all course
-    @GetMapping("/api/courses/all")
+    @GetMapping("/api/courses")
     public List<Course> getCourses(){
     	return courseRepository.findAll();
     }
@@ -46,7 +46,7 @@ public class CourseController{
 //
 //    }
     
-    @GetMapping("/api/courses/details/{course_id}")
+    @GetMapping("/api/courses/{course_id}")
 	public ResponseEntity<Course> getResourceById(@PathVariable Long course_id)
 	{
 		Course course=courseRepository.findById(course_id).orElseThrow(()-> new CourseNotFoundException(""));

@@ -13,6 +13,7 @@ import { ManagerResourceEnquirySummaryComponent } from './manager-resource-enqui
 import { ManagerCourseEnquirySummaryComponent } from './manager-course-enquiry-summary/manager-course-enquiry-summary.component';
 import { CreateResourceComponent } from './create-resource/create-resource.component';
 import { ResourceListComponent } from './resource-list/resource-list.component';
+import { CourseListComponent } from './course-list/course-list.component';
 import { ResourceEnquiryComponent } from './resource-enquiry/resource-enquiry.component';
 import { ResourceDisplayComponent } from './resource-display/resource-display.component';
 import { UpdateResourceComponent } from './update-resource/update-resource.component';
@@ -33,6 +34,8 @@ const routes: Routes = [
 
   {path:'create-resource',component: CreateResourceComponent},
   {path:'resources', component:ResourceListComponent},
+  {path:'courses', component:CourseListComponent},
+
   {path:'resource-enquiry',component: ResourceEnquiryComponent},
   {path:'resource-display',component: ResourceDisplayComponent},
   {path:'update-resource/:resourceId',component: UpdateResourceComponent},

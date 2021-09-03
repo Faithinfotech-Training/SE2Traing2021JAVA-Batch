@@ -1,4 +1,4 @@
-package com.faith.app.model;
+	package com.faith.app.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

@@ -21,11 +21,11 @@ public class CourseEnquiry {
 	
 	@ManyToOne(cascade= {CascadeType.PERSIST, CascadeType.MERGE}, targetEntity=Guest.class)
 	@JoinColumn(name="guest_id")
-	private Long guestId;
+	private Guest guestId;
 	
 	@ManyToOne(cascade=CascadeType.MERGE, targetEntity=Course.class)
 	@JoinColumn(name="course_id")
-	private Long courseId;
+	private Course courseId;
 	
 	@Column(name="date")
 	private String enquiryDate;
@@ -43,7 +43,7 @@ public class CourseEnquiry {
 	}
 	
 	
-	public CourseEnquiry(Long courseEnquiryId, Long guestId, Long courseId, String date, CourseEnquiryStatus enquiryStatus) {
+	public CourseEnquiry(Long courseEnquiryId, Guest guestId, Course courseId, String date, CourseEnquiryStatus enquiryStatus) {
 		super();
 		this.courseEnquiryId = courseEnquiryId;
 		this.guestId = guestId;
@@ -63,22 +63,22 @@ public class CourseEnquiry {
 	}
 
 
-	public Long getGuestId() {
+	public Guest getGuestId() {
 		return guestId;
 	}
 
 
-	public void setGuestId(Long guestId) {
+	public void setGuestId(Guest guestId) {
 		this.guestId = guestId;
 	}
 
 
-	public Long getCourseId() {
+	public Course getCourseId() {
 		return courseId;
 	}
 
 
-	public void setCourseId(Long courseId) {
+	public void setCourseId(Course courseId) {
 		this.courseId = courseId;
 	}
 

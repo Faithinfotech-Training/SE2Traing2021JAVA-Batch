@@ -30,6 +30,7 @@ import { ResourceEnquiryComponent } from './resource-enquiry/resource-enquiry.co
 import { ResourceDisplayComponent } from './resource-display/resource-display.component';
 import { UpdateResourceComponent } from './update-resource/update-resource.component';
 import { SalesPipelineComponent } from './sales-pipeline/sales-pipeline.component';
+import { CourseListComponent } from './course-list/course-list.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { SalesPipelineComponent } from './sales-pipeline/sales-pipeline.componen
     ResourceEnquiryComponent,
     ResourceDisplayComponent,
     UpdateResourceComponent,
-    SalesPipelineComponent
+    SalesPipelineComponent,
+    CourseListComponent
   ],
   imports: [
     BrowserModule,

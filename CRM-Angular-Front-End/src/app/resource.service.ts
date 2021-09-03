@@ -28,5 +28,4 @@ export class ResourceService {
     return this.httpClient.put<object>(`${this.baseUrl}/${resourceId}`,resource);
   }
 
-
 }

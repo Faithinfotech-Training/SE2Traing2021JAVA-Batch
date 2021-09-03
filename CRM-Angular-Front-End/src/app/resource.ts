@@ -1,7 +1,10 @@
 export class Resource {
     resourceId: number;
     resourceName: string;
-   resourceType: string;
+
+    // this is in resource_type table in the database
+    resourceType: string;
+    
     resourceDescription: string;
     maxCapacity: number;
     avaliableCapacity: number;
