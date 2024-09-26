@@ -1,0 +1,30 @@
+<!-- <div class="container">
+    <header class="jumbotron">
+      <p>{{ content }}</p>
+    </header>
+  </div> -->
+  <h2>Resource Enquiry List</h2>
+  <table class="table table-striped">
+      <thead>
+          <tr>
+              <!-- <th>Resource Enquiry Id</th> -->
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone Number</th>
+              <th>Resource Name</th>
+              <th>Enquiry Status</th>
+              <th>Enquiry Date</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let resourceEnquiry of resourceEnquiries">
+              <!-- <td>{{resourceEnquiry.resourceEnquiryId}}</td> -->
+              <td>{{resourceEnquiry.guestId.guestName}}</td>
+              <td>{{resourceEnquiry.guestId.guestEmail}}</td>
+              <td>{{resourceEnquiry.guestId.guestPhoneNumber}}</td>
+              <td>{{resourceEnquiry.resourceId.resourceName}}</td>
+              <td>{{resourceEnquiry.enquiryStatus.statusType}}</td>
+              <td>{{resourceEnquiry.date}}</td>
+          </tr>
+      </tbody>
+  </table>

@@ -1,0 +1,27 @@
+
+  <h2>Course Enquiry List</h2>
+  <table class="table table-striped">
+      <thead>
+          <tr>
+              <!-- <th>Course Enquiry Id</th> -->
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone Number</th>
+              <th>Course Name</th>
+              <th>Enquiry Status</th>
+              <th>Enquiry Date</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let courseEnquiry of courseEnquiries">
+              <!-- <td>{{courseEnquiry.courseEnquiryId}}</td> -->
+              <td>{{courseEnquiry.guestId.guestName}}</td>
+              <td>{{courseEnquiry.guestId.guestEmail}}</td>
+              <td>{{courseEnquiry.guestId.guestPhoneNumber}}</td>
+              <td>{{courseEnquiry.courseName}}</td>
+              <td>{{courseEnquiry.enquiryStatus.statusType}}</td>
+              <td>{{courseEnquiry.date}}</td>
+          </tr>
+
+      </tbody>
+  </table>
